@@ -1,0 +1,57 @@
+<div class="container" fxLayout="row" fxLayoutGap="25px">
+
+    <mat-card class="mainCard">
+        <mat-card-header>
+            <mat-card-title class="header">Organization: {{orgName}}</mat-card-title>
+            <mat-card-subtitle>Copilot Usage data at organization level</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+
+            <mat-card class="dash-card">
+                <mat-card-header>
+                    <mat-card-title>Number of Lines Suggested vs
+                            Accepted</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="chart-container">
+                        <canvas id="org-summary-chart">{{ chart }}</canvas>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+            <mat-card class="dash-card">
+                <mat-card-header>
+                    <mat-card-title>{{langTitle}}</mat-card-title>
+                    <mat-card-subtitle>{{dateSelected}}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="chart-container">
+                        <canvas id="lang-chart">{{ chart }}</canvas>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+            <mat-card class="dash-card">
+                <mat-card-header>
+                    <mat-card-title>{{pieChartTitle}}</mat-card-title>
+                    <mat-card-subtitle>{{dateSelected}}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="pie-container">
+                        <canvas id="lang-pie-chart">{{ chart }}</canvas>
+                        <canvas id="editor-pie-chart">{{ chart }}</canvas>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+            <mat-card class="dash-card">
+                <mat-card-header>
+                    <mat-card-title>{{editorTitle}}</mat-card-title>
+                    <mat-card-subtitle>{{dateSelected}}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="chart-container">
+                        <canvas id="editor-chart">{{ chart }}</canvas>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </mat-card-content>
+    </mat-card>
+</div>

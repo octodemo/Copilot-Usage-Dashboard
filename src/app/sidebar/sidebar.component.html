@@ -1,0 +1,15 @@
+
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav class="sidenav" mode="side" [opened]="true">
+        <mat-nav-list>
+            <a mat-list-item routerLink="/organization-level" >Organization Level</a>
+            <a mat-list-item routerLink="/enterprise-level" >Enterprise Level</a>
+            <a mat-list-item routerLink="/impact">Impact</a>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

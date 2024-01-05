@@ -1,0 +1,33 @@
+.sidenav-container {
+    height: 100% ;
+    width: 100% !important;
+    margin-bottom: 10px;
+}
+
+.sidenav {
+    width: 15% !important;
+}
+
+a[mat-list-item] {
+    display: block;
+    padding: 4px;
+    margin: 5px 0;
+    background-color: #3f51b5;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+  }
+  
+  a[mat-list-item]:hover {
+    background-color: #303f9f;
+  }
+  
+  a[mat-list-item].active {
+    background-color: #35143b;
+    color: #000;
+  }
+
+  .is-active {
+    background-color: red;
+}
+
