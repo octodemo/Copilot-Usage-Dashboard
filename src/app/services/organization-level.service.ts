@@ -22,7 +22,7 @@ export class OrganizationLevelService {
   }
 
   invokeAPI(): Observable<any> {
-    const orgName = 'octodemo'; 
+    const orgName = environment.orgName; 
     const apiUrl = `${environment.apiUrl}/${orgName}`+ '/copilot/usage';
     const token = environment.token; 
     

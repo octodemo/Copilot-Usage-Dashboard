@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  orgName: "octodemo",
   token:"<<your token>>",
   apiUrl:"https://api.github.com/orgs"
 };

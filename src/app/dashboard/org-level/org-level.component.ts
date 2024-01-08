@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrganizationLevelService } from '../../services/organization-level.service';
 import Chart from 'chart.js/auto';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-org-level',
@@ -9,7 +10,7 @@ import Chart from 'chart.js/auto';
 })
 export class OrgLevelComponent implements OnInit {
 
-  orgName: any = "Octodemo";
+  orgName: any = "";
   data: any = [];
   public chart: any;
   public langChart: any;
@@ -29,6 +30,7 @@ export class OrgLevelComponent implements OnInit {
   constructor(private organizationLevelService: OrganizationLevelService) { }
 
   ngOnInit(): void {
+    this.orgName = environment.orgName;
     // create chart
     this.getData();
   }
