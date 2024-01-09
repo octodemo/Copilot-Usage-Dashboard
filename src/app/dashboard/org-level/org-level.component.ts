@@ -27,6 +27,8 @@ export class OrgLevelComponent implements OnInit {
   editorTitle: any = "";
   pieChartTitle: any = "";
 
+  cards: any;
+
   constructor(private organizationLevelService: OrganizationLevelService) { }
 
   ngOnInit(): void {
@@ -47,14 +49,29 @@ export class OrgLevelComponent implements OnInit {
   }
 
   createChart() {
+    var avgActiveUsers=0;
+    var totalSuggestions=0;
+    var totalAccepted=0;
+    var count=0;
+    
     // extract the day field from the data
     this.data.forEach((element: any) => {
       this.xlabel.push(element.day);
       this.total_lines_suggested.push(element.total_lines_suggested);
       this.total_lines_accepted.push(element.total_lines_accepted);
       this.total_active_users.push(element.total_active_users);
+      count+=1;
+      avgActiveUsers += element.total_active_users;
+      totalSuggestions += element.total_suggestions_count;
+      totalAccepted += element.total_acceptances_count;
     });
 
+    this.cards = [
+      {title: 'Average Active Users', subtitle: Math.round(avgActiveUsers/count), content: 'Average number of Active Users for the last 28 days'},
+      {title: 'Total Suggestions', subtitle: totalSuggestions, content: 'The total number of suggestions offered by Copilot for all developers in last 28 days'},
+      {title: 'Total Acceptance', subtitle: totalAccepted, content: 'The total number of suggestions accepted by users in last 28 days'},
+      {title: 'Acceptance Rate', subtitle: Number((totalAccepted/totalSuggestions*100).toFixed(2))+"%", content: 'Percentage of suggestions that were accepted by users in the last 28 days'}
+    ];
     this.chart = new Chart("org-summary-chart", {
       type: 'bar', //this denotes tha type of chart
 
@@ -63,13 +80,11 @@ export class OrgLevelComponent implements OnInit {
         datasets: [
           {
             label: "Lines Suggested",
-            data: this.total_lines_suggested,
-            backgroundColor: 'blue'
+            data: this.total_lines_suggested
           },
           {
             label: "Lines Accepted",
-            data: this.total_lines_accepted,
-            backgroundColor: 'green'
+            data: this.total_lines_accepted
           }
         ]
       },
@@ -86,6 +101,20 @@ export class OrgLevelComponent implements OnInit {
         onClick: this.handleClick
       }
 
+    });
+
+    this.chart = new Chart("org-users-chart", {
+      type: 'line',
+
+      data: {
+        labels: this.xlabel,
+        datasets: [
+          {
+            label: "Active Users",
+            data: this.total_active_users
+          }
+        ]
+      }
     });
   }
 
@@ -171,13 +200,11 @@ export class OrgLevelComponent implements OnInit {
         datasets: [
           {
             label: "Lines Suggested",
-            data: lang_lines_suggested,
-            backgroundColor: 'blue'
+            data: lang_lines_suggested
           },
           {
             label: "Lines Accepted",
-            data: lang_lines_accepted,
-            backgroundColor: 'green'
+            data: lang_lines_accepted
           }
         ]
       },
@@ -209,13 +236,11 @@ export class OrgLevelComponent implements OnInit {
        datasets: [
          {
            label: "Lines Suggested",
-           data: editor_lines_accepted,
-           backgroundColor: 'blue'
+           data: editor_lines_accepted
          },
          {
            label: "Lines Accepted",
-           data: editor_lines_accepted,
-           backgroundColor: 'green'
+           data: editor_lines_accepted
          }
        ]
      },

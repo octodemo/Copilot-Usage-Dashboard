@@ -7,7 +7,7 @@
     font-weight: bold;
 }
 mat-card{
-    width: 90% !important;
+    width: 96.5% !important;
     margin: 4px;
 }
 #org-summary-chart {
@@ -30,4 +30,17 @@ mat-card{
     max-height: 520px;
     width: 50% !important;
     height: auto !important;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.summary-card {
+  width: 300px;
+  border: 0.4px solid #ccc;
+}
+.summary-card p{
+  font-weight: lighter;
 }
