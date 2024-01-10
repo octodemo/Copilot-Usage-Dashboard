@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-header',
@@ -8,23 +8,20 @@ import {MatDialog} from '@angular/material/dialog';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  
+
   constructor(private router: Router, public dialog: MatDialog) { }
+
+  links = [
+    {label: 'Organization', path: '/organization-level'},
+    {label: 'impact', path: '/impact'},
+    {label: 'Enterprise', path: '/enterprise-level'}
+  ];
 
   ngOnInit(): void {
   }
-  gotoHome(){
-    this.router.navigate(['']);  
-  }
-  todo(){
-
+  gotoHome() {
+    this.router.navigate(['']);
   }
 
-  // define the gotoLogin method
-  gotoLogin(){
-    // navigate to login page
-    this.router.navigate(['login']);
-
-  }
 
 }

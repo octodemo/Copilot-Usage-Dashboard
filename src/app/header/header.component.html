@@ -1,23 +1,21 @@
-
 <p>
-    <mat-toolbar color="primary">
-      <button mat-icon-button (click) ="gotoHome()" >
-        <mat-icon>home</mat-icon>
-      </button>
-      <span>Copilot Usage Dashbaord </span>
-      <span class="example-spacer"></span>
-      <button mat-icon-button (click)="todo()">
+  <mat-toolbar color="primary">
+    <button mat-icon-button (click)="gotoHome()">
+      <mat-icon>home</mat-icon>
+    </button>
+    <span>Copilot Usage Dashbaord </span>
+    <span class="example-spacer"></span>
+    <!--<button mat-icon-button (click)="todo()">
         <mat-icon>list</mat-icon>
       </button>
       <button mat-icon-button (click)="todo()">
         <mat-icon>help</mat-icon>
       </button>    
-      <!-- add an icon for login -->
-      <button mat-icon-button (click)="gotoLogin()">
-        <mat-icon>person</mat-icon>
-      </button>
-    </mat-toolbar>
-  </p>
-  
-
-  
+       add an icon for login -->
+ 
+<nav mat-tab-nav-bar>
+  <a mat-tab-link *ngFor="let link of links" [routerLink]="link.path" routerLinkActive #rla="routerLinkActive">
+    {{link.label}}
+  </a>
+</nav>
+ </mat-toolbar>
