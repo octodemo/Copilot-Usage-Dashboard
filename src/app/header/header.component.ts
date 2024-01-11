@@ -14,7 +14,9 @@ export class HeaderComponent {
   links = [
     {label: 'Organization', path: '/organization-level'},
     {label: 'impact', path: '/impact'},
-    {label: 'Enterprise', path: '/enterprise-level'}
+    {label: 'Sample Response', path: '/sample-response'},
+    {label: 'Org Seats', path: '/org-seats'},
+    {label: 'Enterprise', path: '/enterprise-level'},
   ];
 
   ngOnInit(): void {

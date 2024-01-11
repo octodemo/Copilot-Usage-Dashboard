@@ -8,23 +8,25 @@ import { MatCardModule} from '@angular/material/card';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule} from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTableModule } from '@angular/material/table'  
 import {MatSortModule} from '@angular/material/sort';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { OrgLevelComponent } from './dashboard/org-level/org-level.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { EnterpriseLevelComponent } from './dashboard/enterprise-level/enterprise-level.component';
 import { ImpactAnalysisComponent } from './dashboard/impact-analysis/impact-analysis.component';
+import { SampleApiResponseComponent } from './dashboard/sample-api-response/sample-api-response.component';
+import { OrgSeatsComponent } from './dashboard/org-seats/org-seats.component';
 
 
 @NgModule({
@@ -33,9 +35,10 @@ import { ImpactAnalysisComponent } from './dashboard/impact-analysis/impact-anal
     HeaderComponent,
     FooterComponent,
     OrgLevelComponent,
-    SidebarComponent,
     EnterpriseLevelComponent,
-    ImpactAnalysisComponent
+    ImpactAnalysisComponent,
+    SampleApiResponseComponent,
+    OrgSeatsComponent
   ],
   imports: [
     BrowserModule,
@@ -49,9 +52,10 @@ import { ImpactAnalysisComponent } from './dashboard/impact-analysis/impact-anal
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    MatTableModule,
+    NgxPaginationModule,
     FormsModule,
     MatDialogModule,
-    MatTableModule,
     MatSortModule,
     ReactiveFormsModule,
     MatSidenavModule,

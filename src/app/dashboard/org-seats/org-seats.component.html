@@ -1,0 +1,40 @@
+<div class="container" fxLayout="row" fxLayoutGap="25px">
+    <div class="card-container">
+        <mat-card class="summary-card" *ngFor="let seat of seatDetails">
+            <mat-card-header>
+                <mat-card-title>{{seat.category}}</mat-card-title>
+                <mat-card-subtitle>
+                    <h1>{{seat.value}}</h1>
+                </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <p>
+                    {{seat.desc}}
+                </p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    
+    <table>
+        <tr>
+            <th>User</th>
+            <th> Create Date</th>
+            <th> Updated Date</th>
+            <th> Last Activity Date</th>
+            <th> Last Activity Editor</th>
+            <th> Pending Cancellation</th>
+        </tr>
+        <tr *ngFor="let seat of seatInformation | paginate: { itemsPerPage: 20, currentPage: page }">
+          <td>{{ seat.assignee.login }}</td>
+          <td>{{ seat.created_at | date:'dd-MMM-yyyy' }}</td>
+          <td>{{ seat.updated_at | date:'dd-MMM-yyyy'}}</td>
+          <td>{{ seat.last_activity_at | date:'dd-MMM-yyyy'}}</td>
+          <td>{{ seat.last_activity_editor }}</td>
+          <td>{{ seat.pending_cancellation_date| date:'dd-MMM-yyyy' }}</td>
+          
+        </tr>
+      </table>
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
+      
+
+</div>

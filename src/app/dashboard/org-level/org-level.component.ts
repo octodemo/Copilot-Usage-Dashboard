@@ -40,7 +40,7 @@ export class OrgLevelComponent implements OnInit {
   getData() {
 
     // get data from service
-    this.organizationLevelService.getData().subscribe((data: any) => {
+    this.organizationLevelService.getCopilotUsageData().subscribe((data: any) => {
       // console.log(data);
       this.data = data;
       sessionStorage.setItem('orgData', JSON.stringify(data));
@@ -90,14 +90,6 @@ export class OrgLevelComponent implements OnInit {
       },
       options: {
         aspectRatio: 2.5,
-        scales: {
-          x: {
-            stacked: true
-          },
-          y: {
-            stacked: true
-          }
-        },
         onClick: this.handleClick
       }
 
@@ -179,7 +171,7 @@ export class OrgLevelComponent implements OnInit {
       this.languageChart(xLangLabel, lang_lines_suggested, lang_lines_accepted);
     
      // chart for Active Users breakdown - language wise and editor wise
-      this.langAndEditorUserChart(xLangLabel, lang_active_users, xEditorLabel, editor_active_users);
+      //this.langAndEditorUserChart(xLangLabel, lang_active_users, xEditorLabel, editor_active_users);
 
       // chart for editor breakdown
       this.editorDetChart(xEditorLabel, editor_lines_suggested, editor_lines_accepted);
@@ -209,15 +201,7 @@ export class OrgLevelComponent implements OnInit {
         ]
       },
       options: {
-        aspectRatio: 2.5,
-        scales: {
-          x: {
-            stacked: true
-          },
-          y: {
-            stacked: true
-          }
-        }
+        aspectRatio: 2.5
       }
 
     });
@@ -245,15 +229,7 @@ export class OrgLevelComponent implements OnInit {
        ]
      },
      options: {
-       aspectRatio: 2.5,
-       scales: {
-         x: {
-           stacked: true
-         },
-         y: {
-           stacked: true
-         }
-       }
+       aspectRatio: 2.5
      }
 
    });
@@ -275,19 +251,7 @@ export class OrgLevelComponent implements OnInit {
              data: lang_active_users
            }
          ]
-       },
-       options: {
-         aspectRatio: 2.5,
-         scales: {
-           x: {
-             stacked: true
-           },
-           y: {
-             stacked: true
-           }
-         }
        }
-
      });
 
      // add a pie chart using xEditorLabel and total_active_users
