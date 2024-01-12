@@ -15,14 +15,14 @@
         </mat-card>
     </div>
     
-    <table>
+    <table matSort (matSortChange)="sortData($event)">
         <tr>
-            <th>User</th>
-            <th> Create Date</th>
-            <th> Updated Date</th>
-            <th> Last Activity Date</th>
-            <th> Last Activity Editor</th>
-            <th> Pending Cancellation</th>
+            <th mat-sort-header="user">User</th>
+            <th mat-sort-header="createDate">Create Date</th>
+            <th mat-sort-header="updatedDate">Updated Date</th>
+            <th mat-sort-header="lastActivityDate">Last Activity Date</th>
+            <th mat-sort-header="lastActivityEditor">Last Activity Editor</th>
+            <th mat-sort-header="pendingCancellation">Pending Cancellation</th>
         </tr>
         <tr *ngFor="let seat of seatInformation | paginate: { itemsPerPage: 20, currentPage: page }">
           <td>{{ seat.assignee.login }}</td>
