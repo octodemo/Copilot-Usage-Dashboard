@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
+import { Sort } from '@angular/material/sort';
 import { environment } from 'src/environments/environment';
 import { OrganizationLevelService } from '../../services/organization-level.service';
 
@@ -58,4 +59,30 @@ export class OrgSeatsComponent implements OnInit {
     });
   }
 
+  compare(a: number | string, b: number | string, isAsc: boolean) {
+    if (a === null) return isAsc ? -1 : 1;
+    if (b === null) return isAsc ? 1 : -1;  
+    return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+  }
+
+  sortData(sort: Sort) {
+    const data = this.seatInformation.slice();
+    if (!sort.active || sort.direction === '') {
+      this.seatInformation = data;
+      return;
+    }
+
+    this.seatInformation = data.sort((a: any, b: any) => {
+      const isAsc = sort.direction === 'asc';
+      switch (sort.active) {
+        case 'user': return this.compare(a.assignee.login, b.assignee.login, isAsc);
+        case 'createDate': return this.compare(a.created_at, b.created_at, isAsc);
+        case 'updatedDate': return this.compare(a.updated_at, b.updated_at, isAsc);
+        case 'lastActivityDate': return this.compare(a.last_activity_at, b.last_activity_at, isAsc);
+        case 'lastActivityEditor': return this.compare(a.last_activity_editor, b.last_activity_editor, isAsc);
+        case 'pendingCancellation': return this.compare(a.pending_cancellation_date, b.pending_cancellation_date, isAsc);
+        default: return 0;
+      }
+    });
+  }
 }
