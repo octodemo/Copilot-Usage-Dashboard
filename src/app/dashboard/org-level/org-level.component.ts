@@ -180,7 +180,7 @@ export class OrgLevelComponent implements OnInit {
 
   }
 
-  languageChart(xLangLabel: any,lang_lines_accepted:any ,lang_lines_suggested:any): void {
+  languageChart(xLangLabel: any,lang_lines_suggested:any,lang_lines_accepted:any ): void {
 
     this.langTitle=" Language: Number of Lines Suggested vs Accepted";
     if (this.langChart) { this.langChart.destroy(); }
@@ -207,7 +207,7 @@ export class OrgLevelComponent implements OnInit {
     });
   }
 
-  editorDetChart(xEditorLabel: any,editor_lines_accepted:any ,editor_lines_suggested:any): void {
+  editorDetChart(xEditorLabel: any,editor_lines_suggested:any, editor_lines_accepted:any ): void {
 
     this.editorTitle= "Editor: Number of Lines Suggested vs Accepted";
    // add stacked bar chart using xEditorLabel, total_lines_suggested and total_lines_accepted
@@ -220,7 +220,7 @@ export class OrgLevelComponent implements OnInit {
        datasets: [
          {
            label: "Lines Suggested",
-           data: editor_lines_accepted
+           data: editor_lines_suggested
          },
          {
            label: "Lines Accepted",
