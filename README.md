@@ -23,10 +23,9 @@ If you want to use your own data, follow the below steps:
 6. Run the app using `npm start`
 
 
-### 10-Jan update
+### 15-Jan update
 
-![Screenshot 2024-01-10 at 9 58 36 AM](https://github.com/octodemo/Copilot-Usage-Dashboard/assets/10282550/e897afba-8e06-443f-ada5-0ad154c3388d)
 
-### 5-Jan update
 
-https://github.com/octodemo/Copilot-Usage-Dashboard/assets/10282550/92d8fde0-212f-423f-962e-9b5bb0983b03
+https://github.com/octodemo/Copilot-Usage-Dashboard/assets/10282550/20db62a2-b020-4318-9ed8-f2ef488d7dc2
+
