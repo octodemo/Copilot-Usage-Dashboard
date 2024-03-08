@@ -15,7 +15,7 @@ For executing this app, follow the below steps:
 Above steps will start the app on `localhost:4200` using sample data from `src/assets` folder. Sample data is from _Octodemo_ organization.
 
 If you want to use your own data, follow the below steps:
-1. Create a GitHub Personal Access Token with scopes mentioned in [API documentation](https://docs.github.com/en/early-access/copilot/copilot-usage-api)
+1. Create a GitHub Personal Access Token with Copilot for Business Scope
 2. Modify the token in `src/environments/environment.ts` file
 3. Modify the organization name in `src/environments/environment.ts` file
 4. Comment the sample data loading code in `src/app/services/organization-level.service.ts` file and uncomment the code to load data from API
