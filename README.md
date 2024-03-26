@@ -25,6 +25,9 @@ If you want to use your own data, follow the below steps:
 5. Install the required dependencies using `npm install`
 6. Run the app using `npm start`
 
+## References
+1. [GitHub Copilot Usage Metrics API](#) - Yet to be published (Private Beta)
+2. [GitHub Copilot Seat Management API](https://docs.github.com/en/rest/copilot?apiVersion=2022-11-28)
 
 ### Status: 15-Jan 
 
