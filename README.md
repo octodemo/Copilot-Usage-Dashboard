@@ -1,18 +1,21 @@
 # Copilot Usage Dashboard
-App to demonstrate the usage of Copilot Usage API
+This Angular application is designed to provide insights into GitHub Copilot usage within an organization. It utilizes the Copilot Usage Metrics API (private Beta) and Copilot Seat Management API to fetch and display relevant data.
 
-## Objective
-This application aims to showcase the utilization of the Copilot Usage API (Alpha). Specifically, the app presents Copilot usage metrics retrieved from the API within the **Organization Level** tab.
+## Features
+1. **Home/Organization Tab:** Displays Copilot usage data for the organization.
+2. **Impact Tab:** Planned feature to showcase GitHub-specific metrics indicating the impact of Copilot, such as lines of code committed per day, overall issue counts, etc. (Pending implementation)
+3. **Sample Response Tab:** Provides a sample API response schema for reference.
+4. **Org Seats Tab:** Shows seat assignment details for the organization.
+5. **Enterprise Tab:** Planned feature to capture Copilot usage at the enterprise level. (Pending implementation)
 
-Planning to add more GitHub specific metrices under **Impact** tab to show the improves in terms of number of lines of code committed per day, overall issue counts, etc. These metrices will be an indicative of Copilot impact, if implemented properly.  
+## Getting Started
 
-## Instructions to run the app
-For executing this app, follow the below steps:
 1. Clone the Repository to Visual Studio Code
 2. Install the required dependencies using `npm install`
 3. Run the app using `npm start`
+4. Access the application in your browser at http://localhost:4200.
 
-Above steps will start the app on `localhost:4200` using sample data from `src/assets` folder. Sample data is from _Octodemo_ organization.
+Above steps will start the app on `localhost:4200` using sample data from `src/assets` folder. 
 
 If you want to use your own data, follow the below steps:
 1. Create a GitHub Personal Access Token with Copilot for Business Scope
@@ -23,7 +26,7 @@ If you want to use your own data, follow the below steps:
 6. Run the app using `npm start`
 
 
-### 15-Jan update
+### Status: 15-Jan 
 
 
 
