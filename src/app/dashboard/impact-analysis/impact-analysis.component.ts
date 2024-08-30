@@ -51,11 +51,11 @@ export class ImpactAnalysisComponent implements OnInit {
   }
 
   createChart() {
-    var avgActiveUsers=0;
-    var totalSuggestions=0;
-    var totalAccepted=0;
-    var totalChats=0;
-    var count=0;
+    let avgActiveUsers=0;
+    let totalSuggestions=0;
+    let totalAccepted=0;
+    let totalChats=0;
+    let count=0;
     
     // extract the day field from the data
     this.data.forEach((element: any) => {
@@ -118,21 +118,21 @@ export class ImpactAnalysisComponent implements OnInit {
           //   data: this.total_lines_suggested.map((value: number, index: number) => value / this.total_active_users[index])
           // }
 					,{
-					label: "Chat Turns / Acitve Chat Users",
+					label: "Chat Turns / Active Chat Users",
 					data: this.total_chat_turns.map((value: number, index: number) => value / this.total_active_chat_users[index])
 					}
         ]
       },
-  options: {
-    scales: {
-      x: {
-        stacked: true
-      },
-      y: {
-        stacked: true
-      }
-    }
-  }
+			options: {
+				scales: {
+					x: {
+						stacked: true
+					},
+					y: {
+						stacked: true
+					}
+				}
+			}
     });
 
 		// Adaptability
