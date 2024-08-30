@@ -1,4 +1,61 @@
-<p>impact-analysis works!</p>
+<div class="container" fxLayout="row" fxLayoutGap="25px">
 
-  
-  
+	<mat-card class="mainCard">
+		<mat-card-header>
+			<mat-card-title class="header">Impact Analysis: {{orgName}}</mat-card-title>
+			<mat-card-subtitle>Copilot Usage data at organization level</mat-card-subtitle>
+		</mat-card-header>
+		<mat-card-content>
+			<!-- Summary Cards displaying numbers-->
+			<div class="card-container">
+				<mat-card class="summary-card" *ngFor="let card of cards">
+					<mat-card-header>
+						<mat-card-title>{{card.title}}</mat-card-title>
+						<mat-card-subtitle>
+							<h1>{{card.subtitle}}</h1>
+						</mat-card-subtitle>
+					</mat-card-header>
+					<mat-card-content>
+						<p>
+							{{card.content}}
+						</p>
+					</mat-card-content>
+				</mat-card>
+			</div>
+
+			<mat-card class="dash-card">
+				<mat-card-header>
+					<mat-card-title>Cognitive load - Completion rate (%) </mat-card-title>
+					<mat-card-subtitle><i>Efficiency in completion without context switching (e.g. suggestions from other sources)</i></mat-card-subtitle>
+				</mat-card-header>
+				<mat-card-content>
+					<div class="chart-container">
+						<canvas id="cognitive-impact-chart">{{ chart }}</canvas>
+					</div>
+				</mat-card-content>
+			</mat-card>
+			<mat-card class="dash-card">
+				<mat-card-header>
+					<mat-card-title>Flow state - Engagement volume (stacked)</mat-card-title>
+					<mat-card-subtitle><i>Interactions with users to solve problem</i></mat-card-subtitle>
+				</mat-card-header>
+				<mat-card-content>
+					<div class="chart-container">
+						<canvas id="flow-impact-chart">{{ chart }}</canvas>
+					</div>
+				</mat-card-content>
+			</mat-card>
+			<mat-card class="dash-card">
+				<mat-card-header>
+					<mat-card-title>Feedback loops - Adaptability rate (%)</mat-card-title>
+					<mat-card-subtitle><i>Progressive learning and adjusting</i></mat-card-subtitle>
+				</mat-card-header>
+				<mat-card-content>
+					<div class="chart-container">
+						<canvas id="feedback-impact-chart">{{ chart }}</canvas>
+					</div>
+				</mat-card-content>
+			</mat-card>
+		</mat-card-content>
+	</mat-card>
+</div>

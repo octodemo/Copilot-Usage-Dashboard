@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  orgName: "octodemo",
+  orgName: "Contoso",
   token:"<<your token>>",
   ghBaseUrl:"https://api.github.com/orgs",
   copilotUsageApiUrl:"/copilot/usage",
