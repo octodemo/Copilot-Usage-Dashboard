@@ -1,0 +1,59 @@
+.container {
+	margin-bottom: 20px;
+}
+
+.mainCard {
+	height: fit-content;
+}
+
+.header {
+	color: darkblue;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+mat-card {
+	width: 96.5% !important;
+	margin: 4px;
+}
+
+#cognitive-impact-chart {
+	max-height: 520px;
+	width: 95%;
+	padding: 10px;
+}
+
+.pie-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+#lang-pie-chart {
+	max-height: 520px;
+	width: 50% !important;
+	height: auto !important;
+}
+
+#editor-pie-chart {
+	max-height: 520px;
+	width: 50% !important;
+	height: auto !important;
+}
+
+.card-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.summary-card {
+	width: 300px;
+	border: 0.4px solid #ccc;
+}
+
+.summary-card p {
+	font-weight: lighter;
+}
+
+body {
+	margin-bottom: 20px;
+}
