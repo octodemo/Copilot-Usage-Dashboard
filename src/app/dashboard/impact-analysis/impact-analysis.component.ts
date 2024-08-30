@@ -91,11 +91,11 @@ export class ImpactAnalysisComponent implements OnInit {
 			datasets: [
 				{
 				label: "Acceptance Count / Suggestion Count",
-				data: this.total_acceptances_count.map((value: number, index: number) => value / this.total_suggestions_count[index])
+				data: this.total_acceptances_count.map((value: number, index: number) => value / this.total_suggestions_count[index] * 100)
 				},
 				{
 				label: "Lines Accepted / Lines Suggested",
-				data: this.total_lines_accepted.map((value: number, index: number) => value / this.total_lines_suggested[index])
+				data: this.total_lines_accepted.map((value: number, index: number) => value / this.total_lines_suggested[index] * 100)
 				}
 			]
 			}
@@ -104,7 +104,7 @@ export class ImpactAnalysisComponent implements OnInit {
 
 		// Engagement
     this.chart = new Chart("flow-impact-chart", {
-      type: 'line',
+      type: 'bar',
 
       data: {
         labels: this.xlabel,
@@ -112,18 +112,27 @@ export class ImpactAnalysisComponent implements OnInit {
           {
             label: "Suggestions Count / Active Users",
             data: this.total_suggestions_count.map((value: number, index: number) => value / this.total_active_users[index])
-          },
-          {
-            label: "Lines Suggested / Active Users",
-            data: this.total_lines_suggested.map((value: number, index: number) => value / this.total_active_users[index])
-          },
-					{
+          }
+					// ,{
+          //   label: "Lines Suggested / Active Users",
+          //   data: this.total_lines_suggested.map((value: number, index: number) => value / this.total_active_users[index])
+          // }
+					,{
 					label: "Chat Turns / Acitve Chat Users",
 					data: this.total_chat_turns.map((value: number, index: number) => value / this.total_active_chat_users[index])
-					},
-
+					}
         ]
+      },
+  options: {
+    scales: {
+      x: {
+        stacked: true
+      },
+      y: {
+        stacked: true
       }
+    }
+  }
     });
 
 		// Adaptability
@@ -133,13 +142,13 @@ export class ImpactAnalysisComponent implements OnInit {
       data: {
         labels: this.xlabel,
         datasets: [
-					{
-					label: "Chat Turns",
-					data: this.total_chat_turns
-					},
+					// {
+					// label: "Chat Turns",
+					// data: this.total_chat_turns
+					// },
 					{
 					label: "Chats Accepted / Chat Turns",
-					data: this.total_chat_acceptances.map((value: number, index: number) => value / this.total_chat_turns[index])
+					data: this.total_chat_acceptances.map((value: number, index: number) => value / this.total_chat_turns[index] * 100)
 					}
         ]
       }
