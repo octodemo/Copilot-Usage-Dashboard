@@ -1,6 +1,8 @@
 # Copilot Usage Dashboard
 This Angular application is designed to provide insights into GitHub Copilot usage within an organization. It utilizes the Copilot Usage Metrics API (private Beta) and Copilot Seat Management API to fetch and display relevant data.
 
+> **Note:** This solution was developed to demonstrate potential use cases and is not intended for production use. If you plan to deploy it in a production environment, please customize it to meet your non-functional requirements (NFRs). This repository is not regularly maintained or updated.
+
 ## Features
 1. **Home/Organization Tab:** Displays Copilot usage data for the organization.
 2. **Impact Tab:** Planned feature to showcase GitHub-specific metrics indicating the impact of Copilot, such as lines of code committed per day, overall issue counts, etc. (Pending implementation)
