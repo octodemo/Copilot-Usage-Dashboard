@@ -28,7 +28,7 @@ export class OrganizationLevelService {
     // uncomment below line to invoke API
     // modify the environment file to add your token
     // modify the organization name to your organization
-    // return this.invokeCopilotSeatApi();
+    // return this.invokeCopilotSeatApi(30);
   }
 
   invokeCopilotUsageApi(): Observable<any> {
@@ -45,44 +45,58 @@ export class OrganizationLevelService {
     return this.http.get(apiUrl, { headers });
   }
 
-  invokeCopilotSeatApi(): Observable<any> {
+    invokeCopilotSeatApi(pageSize: number = 30): Observable<any> {
     const orgName = environment.orgName; 
     const apiUrl = `${environment.ghBaseUrl}/${orgName}/${environment.copilotSeatApiUrl}`;
-    var data:any;
-    var firstPage=true;
-    var pageNo=1;
-    var totalPages=1;
-
-    // get the paginated Copilot Seat allocation data
-    do{
-      var response = this.getPaginatedSeatsData(apiUrl, pageNo);
-      response.subscribe((data: any) => {
-        if(firstPage){
-          data=data;
-          firstPage=false;
-          totalPages=data.total_pages;
-        }
-        else{
-          data.seats=data.seats.concat(data.seats);
-        }
-      });
-      pageNo=pageNo+1;
-    }while(pageNo < totalPages);
-
-    return data;
-  }
-
-  getPaginatedSeatsData(apiUrl:any, pageNo:any): Observable<any> {
-    const token = environment.token; 
     
+  
+    let data: any = { seats: [] };
+    let firstPage = true;
+    let pageNo = 1;
+    let totalPages = 1;
+  
+    // Create an observable to handle the paginated data fetching
+    return new Observable(observer => {
+      const fetchPage = (pageNo: number) => {
+        this.getPaginatedSeatsData(apiUrl, pageNo, pageSize).subscribe({
+          next: (response: any) => {
+            if (firstPage) {
+              data = response;
+              firstPage = false;
+              totalPages = response.total_pages;
+            } else {
+              data.seats = data.seats.concat(response.seats);
+            }
+  
+            if (pageNo < totalPages) {
+              fetchPage(pageNo + 1);
+            } else {
+              observer.next(data);
+              observer.complete();
+            }
+          },
+          error: (error) => {
+            // console log the error
+            console.error('Error fetching paginated data:', error);
+            observer.error(error);
+          }
+        });
+      };
+  
+      fetchPage(pageNo);
+    });
+  }
+  
+  getPaginatedSeatsData(apiUrl: string, pageNo: number, pageSize: number): Observable<any> {
+    const token = environment.token;
+    const paginatedUrl = `${apiUrl}?page=${pageNo}&per_page=${pageSize}`;
     const headers = new HttpHeaders({
       'Accept': 'application/vnd.github+json',
       'Authorization': `Bearer ${token}`,
       'X-GitHub-Api-Version': '2022-11-28'
     });
-
-    return this.http.get(apiUrl+"?page="+pageNo, { headers });
-
+  
+    return this.http.get(paginatedUrl, { headers });
   }
 
 }
