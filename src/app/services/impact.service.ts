@@ -15,20 +15,20 @@ export class ImpactService {
 
   getCopilotUsageData(): Observable<any>  {
     // sample dta loaded from local file
-    return this.http.get(this.copilotUsageDataUrl);
+    // return this.http.get(this.copilotUsageDataUrl);
     // uncomment below line to invoke API
     // modify the environment file to add your token
     // modify the organization name to your organization
-    // return this.invokeCopilotUsageApi();
+    return this.invokeCopilotUsageApi();
   }
 
   getCopilotSeatsData(): Observable<any>  {
     // sample dta loaded from local file
-    return this.http.get(this.copilotSeatsDataUrl);
+    // return this.http.get(this.copilotSeatsDataUrl);
     // uncomment below line to invoke API
     // modify the environment file to add your token
     // modify the organization name to your organization
-    // return this.invokeCopilotSeatApi();
+    return this.invokeCopilotSeatApi();
   }
 
   invokeCopilotUsageApi(): Observable<any> {
