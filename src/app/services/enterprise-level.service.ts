@@ -9,6 +9,7 @@ export class EnterpriseLevelService {
 
   private dataUrl = 'copilot_usage_data.json'; // URL to JSON data
 
+
   constructor(private http: HttpClient) { }
 
   getData(): Observable<any> {
