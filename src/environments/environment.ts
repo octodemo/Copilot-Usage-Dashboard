@@ -7,8 +7,8 @@ export const environment = {
   orgName: "Contoso",
   token:"<<your token>>",
   ghBaseUrl:"https://api.github.com/orgs",
-  copilotUsageApiUrl:"/copilot/usage",
-  copilotSeatApiUrl:"/copilot/billing/seats"
+  copilotUsageApiUrl:"copilot/usage",
+  copilotSeatApiUrl:"copilot/billing/seats"
 };
 
 /*

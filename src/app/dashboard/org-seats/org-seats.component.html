@@ -24,7 +24,7 @@
             <th mat-sort-header="lastActivityEditor">Last Activity Editor</th>
             <th mat-sort-header="pendingCancellation">Pending Cancellation</th>
         </tr>
-        <tr *ngFor="let seat of seatInformation | paginate: { itemsPerPage: 20, currentPage: page }">
+        <tr *ngFor="let seat of seatInformation | paginate: { itemsPerPage: 30, currentPage: page }">
           <td>{{ seat.assignee.login }}</td>
           <td>{{ seat.created_at | date:'dd-MMM-yyyy' }}</td>
           <td>{{ seat.updated_at | date:'dd-MMM-yyyy'}}</td>

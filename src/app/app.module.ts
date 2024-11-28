@@ -27,7 +27,7 @@ import { EnterpriseLevelComponent } from './dashboard/enterprise-level/enterpris
 import { ImpactAnalysisComponent } from './dashboard/impact-analysis/impact-analysis.component';
 import { SampleApiResponseComponent } from './dashboard/sample-api-response/sample-api-response.component';
 import { OrgSeatsComponent } from './dashboard/org-seats/org-seats.component';
-
+import { CopilotDataService } from './services/copilot-data.service';
 
 @NgModule({
   declarations: [
@@ -61,7 +61,7 @@ import { OrgSeatsComponent } from './dashboard/org-seats/org-seats.component';
     MatSidenavModule,
     MatListModule
   ],
-  providers: [],
+  providers: [CopilotDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
